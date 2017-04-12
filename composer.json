@@ -1,0 +1,30 @@
+{
+  "name": "lionmm/guzzleplus",
+  "type": "library",
+  "description": "Some guzzle sugar",
+  "keywords": [
+    "guzzle",
+    "guzzlehttp",
+    "http",
+    "http-client",
+    "laravel"
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "guzzlehttp/guzzle": "^6.2",
+    "fzaninotto/faker": "^1.6"
+  },
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Kirill Snovidov",
+      "email": "kirill@snovidov.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "LionMM\\GuzzlePlus\\": "src/"
+    }
+  },
+  "minimum-stability": "dev"
+}
