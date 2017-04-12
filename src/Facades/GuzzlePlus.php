@@ -1,4 +1,4 @@
-<?php namespace UniMoni\GuzzlePlus\Facades;
+<?php namespace LionMM\GuzzlePlus\Facades;
 
 use Illuminate\Support\Facades\Facade;
 

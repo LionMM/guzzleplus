@@ -1,4 +1,4 @@
-<?php namespace UniMoni\GuzzlePlus;
+<?php namespace LionMM\GuzzlePlus;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
@@ -7,7 +7,7 @@ use Faker\Factory as Faker;
 
 /**
  * Class GuzzlePlus
- * @package UniMoni\GuzzlePlus
+ * @package LionMM\GuzzlePlus
  */
 class GuzzlePlus
 {

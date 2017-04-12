@@ -1,4 +1,4 @@
-<?php namespace UniMoni\GuzzlePlus;
+<?php namespace LionMM\GuzzlePlus;
 
 use Illuminate\Support\ServiceProvider;
 
