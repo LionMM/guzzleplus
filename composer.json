@@ -1,7 +1,7 @@
 {
   "name": "lionmm/guzzleplus",
-  "type": "library",
   "description": "Some guzzle sugar",
+  "type": "library",
   "keywords": [
     "guzzle",
     "guzzlehttp",
