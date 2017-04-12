@@ -15,9 +15,7 @@ class GuzzlePlusServiceProvider extends ServiceProvider
         $configPath = __DIR__ . '/config/guzzleplus.php';
         $this->mergeConfigFrom($configPath, 'guzzleplus');
 
-        $this->app->singleton('guzzleplus', function ($app) {
-            return new GuzzlePlus($app);
-        });
+        $this->app->singleton(GuzzlePlus::class);
     }
 
     /**
