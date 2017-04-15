@@ -163,6 +163,8 @@ class GuzzlePlus
             'form_params' => $post_data,
             'connect_timeout' => $timeout,
             'debug' => config('guzzleplus.debug'),
+            'allow_redirects' => config('guzzleplus.allow_redirects'),
+            'read_timeout' => $timeout,
         ];
         if ($proxy) {
             $data['proxy'] = 'tcp://' . $proxy;
