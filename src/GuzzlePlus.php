@@ -4,6 +4,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Exception\ClientException;
 use GuzzleHttp\Cookie\CookieJar;
 use Faker\Factory as Faker;
+use GuzzleHttp\Psr7\Response;
 
 /**
  * Class GuzzlePlus
@@ -16,6 +17,9 @@ class GuzzlePlus
 
     /** @var  Client */
     public $client;
+
+    /** @var int|null */
+    private $lastStatus;
 
     /**
      * GuzzlePlus constructor.
@@ -68,6 +72,7 @@ class GuzzlePlus
         $data = $this->prepareDataArray($uri, $data, $type, $proxy, $timeout);
 
         try {
+            /** @var Response $response */
             $response = $this->client->request(
                 $type,
                 $uri,
@@ -79,9 +84,11 @@ class GuzzlePlus
                 return json_decode($response->getBody());
             }
 
+            $this->lastStatus = $response->getStatusCode();
             return (string)$response->getBody();
 
         } catch (ClientException $e) {
+            $this->lastStatus = $response->getStatusCode();
             return false;
         }
     }
@@ -171,5 +178,24 @@ class GuzzlePlus
         }
 
         return $data;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getLastStatus()
+    {
+        return $this->lastStatus;
+    }
+
+    /**
+     * @param int|null $statusCode
+     * @return self
+     */
+    public function setLastStatus($statusCode = null)
+    {
+        $this->lastStatus = $statusCode;
+
+        return $this;
     }
 } 
