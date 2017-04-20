@@ -21,6 +21,9 @@ class GuzzlePlus
     /** @var int|null */
     private $lastStatus;
 
+    /** @var array */
+    private $lastResponseHeaders = [];
+
     /**
      * GuzzlePlus constructor.
      */
@@ -85,10 +88,13 @@ class GuzzlePlus
             }
 
             $this->lastStatus = $response->getStatusCode();
+            $this->lastResponseHeaders = $response->getHeaders();
+
             return (string)$response->getBody();
 
         } catch (ClientException $e) {
             $this->lastStatus = $response->getStatusCode();
+
             return false;
         }
     }
@@ -188,6 +194,15 @@ class GuzzlePlus
         return $this->lastStatus;
     }
 
+    /**
+     * @return array
+     */
+    public function getLastResponseHeaders(): array
+    {
+        return $this->lastResponseHeaders;
+    }
+
+    
     /**
      * @param int|null $statusCode
      * @return self
